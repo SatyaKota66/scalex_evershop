@@ -1,0 +1,5 @@
+{
+  "methods": ["GET"],
+  "path": "/bot-registrations",
+  "name": "Bot Registrations"
+}

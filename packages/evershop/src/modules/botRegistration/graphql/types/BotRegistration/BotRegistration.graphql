@@ -1,0 +1,37 @@
+"""
+Represents a single bot / agent registration
+"""
+type BotRegistration {
+  botRegistrationId: Int!
+  uuid: String!
+  status: String!
+  botName: String!
+  organizationName: String!
+  contactEmail: String!
+  purposeOfAccess: String!
+  callbackUrl: String
+  allowedDomain: String
+  expectedUsagePattern: String
+  requestedPermissions: [String]!
+  intendedActions: [String]!
+  adminNote: String
+  apiKey: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  viewUrl: String!
+  updateApi: String!
+}
+
+"""
+Paginated collection of bot registrations
+"""
+type BotRegistrationCollection {
+  items: [BotRegistration]!
+  total: Int!
+  currentFilters: [Filter]
+}
+
+extend type Query {
+  botRegistration(uuid: String!): BotRegistration
+  botRegistrations(filters: [FilterInput]): BotRegistrationCollection
+}
